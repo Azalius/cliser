@@ -12,9 +12,9 @@ def get_time_wait():
         if aRet>0.0: #we only want positive value
             return aRet
 
+s.bind(('', PORT))
 while True:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(('', PORT))
         s.listen()
         conn, addr = s.accept()
         with conn:
